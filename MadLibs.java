@@ -1,4 +1,10 @@
+import java.awt.Font;
 import java.util.Scanner;
+
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import javax.swing.border.Border;
 
 public class MadLibs {
 	// The story I have used was found on 
@@ -19,17 +25,29 @@ public class MadLibs {
 
 	private static void printStory() {
 		// Display story with user input words inserted in the story
-		System.out.println("The Best Halloween Party Ever");
-		System.out.println("Last night I went to the most "+ wordArray[0] + " Halloween party! The invitation was delivered by ");
-		System.out.println(wordArray[1] + " and told me to go to the deep dark " + wordArray[2] + " and " + wordArray[3] + " all the ");
-		System.out.println("way to the very top of the spooky "+ wordArray[4] + ". I " + wordArray[5] + " the doorbell "+ wordArray[6] + ". ");
-		System.out.println(wordArray[7] + "! My friend "+ wordArray[8] + " answered the door dressed up as " + wordArray[9]);
-		System.out.println("and said  '" + wordArray[10] + "!' There were " + wordArray[11] + " different costumes, including ");
-		System.out.println(wordArray[12] + " ghouls and mummified " + wordArray[13] + ". The music was loud and " + wordArray[14] + ",");
-		System.out.println("so I " + wordArray[15] + " until my " + wordArray[16] + " hurt. There were also delicious treats to ");
-		System.out.println(wordArray[17] + ", like candy corn and chocolate-covered "+ wordArray[18] + ", but my favourite part of ");
-		System.out.println("the party was the pumpkin " + wordArray[19] + " and bobbing for " + wordArray[20] + ". ");
-		System.out.println("I can't wait until next Halloween - it will be even more "+ wordArray[21] + "!");
+		JFrame f = new JFrame("The Best Halloween Party Ever");
+		f.setSize(1500, 600);// set the size of the frame
+		f.setResizable(false); // make the frame so that it cannot be resized
+		JTextArea story = new JTextArea();
+		Border typeBorder = BorderFactory.createLoweredBevelBorder();//set border type
+		story.setBorder(typeBorder);
+		story.setFont(new Font("Arial Bold", Font.PLAIN, 30));// set the font type and size
+		story.setText("Last night I went to the most "+ wordArray[0] + " Halloween party! The invitation was delivered by\n ");
+		story.append(wordArray[1] + " and told me to go to the deep dark " + wordArray[2] + " and " + wordArray[3] + " all the \n");
+		story.append("way to the very top of the spooky "+ wordArray[4] + ". I " + wordArray[5] + " the doorbell "+ wordArray[6] + ". \n");
+		story.append(wordArray[7] + "! My friend "+ wordArray[8] + " answered the door dressed up as " + wordArray[9]  + "\n");
+		story.append("and said  '" + wordArray[10] + "!' There were " + wordArray[11] + " different costumes, including \n");
+		story.append(wordArray[12] + " ghouls and mummified " + wordArray[13] + ". The music was loud and " + wordArray[14] + ",\n");
+		story.append("so I " + wordArray[15] + " until my " + wordArray[16] + " hurt. There were also delicious treats to \n");
+		story.append(wordArray[17] + ", like candy corn and chocolate-covered "+ wordArray[18] + ", but my favourite part of \n");
+		story.append("the party was the pumpkin " + wordArray[19] + " and bobbing for " + wordArray[20] + ". \n");
+		story.append("I can't wait until next Halloween - it will be even more "+ wordArray[21] + "!");
+		story.setEditable(false);// make the JTextField uneditable
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // handle the close of frame
+		f.setAlwaysOnTop(true);
+		f.setLocationRelativeTo(null);// set to middle of screen
+		f.add(story);// add the text field to the JFrame
+		f.setVisible(true);//make visible
 	}
 
 	private static void getWords() {
@@ -44,4 +62,5 @@ public class MadLibs {
 		input.close();
 	}
 }
+//# MadLibs
 # MadLibs
