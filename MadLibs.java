@@ -4,9 +4,10 @@ import java.util.Scanner;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
+import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 
-public class MadLibs {
+public class MadLibs extends JFrame {
 	// The story I have used was found on 
 	// https://docs.google.com/viewer?url=http://www.scholastic.ca/clubs/images/activities/ACT_HalloweenMadLibs_10_2012.pdf
 	// declare global arrays and populate the type of words needed
@@ -17,10 +18,17 @@ public class MadLibs {
 		public static String [] wordArray = new String[22];
 	
 	public static void main(String[] args) {
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+			 new MainFrame();
+			}
+		});
+		//BuildQuestion bq = new BuildQuestion();
+		
 		// get user input
-		getWords();
+		//getWords();
 		// display story with user input
-		printStory();
+		//printStory();
 	}
 
 	private static void printStory() {
@@ -63,4 +71,4 @@ public class MadLibs {
 	}
 }
 //# MadLibs
-# MadLibs
+//# MadLibs
